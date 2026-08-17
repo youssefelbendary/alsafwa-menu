@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مخبوزات الصفوة - المنيو الذكي</title>
+  <style>
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, sans-serif; }
+    body { background: #f4f6f8; margin: 0; padding: 15px; direction: rtl; }
+    
+    header { text-align: center; margin-bottom: 20px; }
+    header h1 { color: #0d523c; margin: 5px 0; font-size: 24px; }
+    header p { color: #666; font-size: 14px; margin: 0; }
+
+    .controls { max-width: 500px; margin: 0 auto 20px auto; display: flex; flex-direction: column; gap: 10px; }
+    .search-bar { width: 100%; padding: 12px; border: 2px solid #0d523c; border-radius: 8px; font-size: 16px; outline: none; }
+    
+    .filters { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 14px; border: 1px solid #ccc; background: #fff; border-radius: 20px; cursor: pointer; font-size: 13px; font-weight: bold; transition: 0.2s; }
+    .filter-btn.active { background: #0d523c; color: #fff; border-color: #0d523c; }
+
+    .products-grid { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+    .card { background: #fff; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-right: 5px solid #0d523c; }
+    
+    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .product-title { font-size: 18px; font-weight: bold; color: #1a1a1a; margin: 0; }
+    
+    .price-tag { font-size: 13px; font-weight: bold; color: #0d523c; background: #e8f5e9; padding: 4px 8px; border-radius: 6px; }
+    
+    .badges { margin: 8px 0; display: flex; gap: 6px; flex-wrap: wrap; }
+    .badge { font-size: 11px; padding: 3px 8px; border-radius: 12px; font-weight: bold; }
+    .badge-fasting { background: #e8f5e9; color: #2e7d32; }
+    .badge-sugar { background: #e0f2fe; color: #0284c7; }
+
+    .details { font-size: 13px; color: #555; margin-top: 8px; line-height: 1.4; }
+    .allergens { color: #d32f2f; font-size: 12px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>مخبوزات الصفوة 🥐</h1>
+    <p>دليلك السريع لمكونات وأسعار منتجاتنا</p>
+  </header>
+
+  <div class="controls">
+    <input type="text" id="searchInput" class="search-bar" placeholder="ابحث عن اسم المنتج أو المكونات..." oninput="filterProducts()">
+    <div class="filters">
+      <button class="filter-btn active" onclick="setFilter('all', this)">الكل</button>
+      <button class="filter-btn" onclick="setFilter('fasting', this)">🌱 صيامي فقط</button>
+      <button class="filter-btn" onclick="setFilter('diabetic', this)">💙 مناسب للسكر</button>
+    </div>
+  </div>
+
+  <div class="products-grid" id="productsList"></div>
+
+  <script>
+    const products = [
+      {
+        id: 1,
+        name: "باتيه جبنة تركي / بيضاء",
+        price: "القطعة: 12 جـ | الكيلو ميني: 120 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، جبنة (تركي/بيضاء)",
+        allergens: "جلوتين، ألبان، بيض"
+      },
+      {
+        id: 2,
+        name: "باتيه كيري بسطرمة / شوكولاتة",
+        price: "القطعة: 14 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، (جبنة كيري وبسطرمة / شوكولاتة)",
+        allergens: "جلوتين، ألبان، بيض"
+      },
+      {
+        id: 3,
+        name: "كرواسون (جبنة بيضاء / شوكولاتة)",
+        price: "الكيلو ميني: 120 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، (جبنة بيضاء / شوكولاتة)",
+        allergens: "جلوتين، ألبان، بيض"
+      },
+      {
+        id: 4,
+        name: "دنش",
+        price: "القطعة: 15 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء",
+        allergens: "جلوتين، ألبان، بيض"
+      },
+      {
+        id: 5,
+        name: "بيتزا كبيرة",
+        price: "القطعة: 15 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، صلصة، طماطم، فلفل، جبنة تركي",
+        allergens: "جلوتين، ألبان، بيض"
+      },
+      {
+        id: 6,
+        name: "ميني بيتزا",
+        price: "الكيلو: 120 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، صلصة، طماطم، فلفل، جبنة تركي",
+        allergens: "جلوتين، ألبان، بيض"
+      },
+      {
+        id: 7,
+        name: "قراقيش زبدة",
+        price: "الربع: 32.5 جـ | الكيلو: 130 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق، محلب، خميرة طبيعية، زبدة صفراء، ملح، ماء",
+        allergens: "جلوتين، ألبان"
+      },
+      {
+        id: 8,
+        name: "قراقيش سادة",
+        price: "الربع: 30 جـ | الكيلو: 120 جـ",
+        isFasting: true,
+        diabeticFriendly: false,
+        ingredients: "دقيق، خميرة، زيت وسمنة نباتي، ملح، ماء",
+        allergens: "جلوتين"
+      },
+      {
+        id: 9,
+        name: "قراقيش ينسون",
+        price: "الربع: 30 جـ | الكيلو: 120 جـ",
+        isFasting: true,
+        diabeticFriendly: false,
+        ingredients: "دقيق، ينسون، خميرة، زيت وسمنة نباتي، ملح، ماء",
+        allergens: "جلوتين"
+      },
+      {
+        id: 10,
+        name: "بوريك (جبنة اسطنبولي / بسطرمة)",
+        price: "الربع: 35 جـ | الكيلو: 140 جـ",
+        isFasting: false,
+        diabeticFriendly: false,
+        ingredients: "دقيق، صلصة، حبة البركة، سمنة نباتي، خميرة طبيعية، ملح، ماء، (جبنة اسطنبولي / بسطرمة)",
+        allergens: "جلوتين، ألبان"
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderProducts(list) {
+      const container = document.getElementById('productsList');
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = '<p style="text-align:center; color:#888;">لا توجد نتائج مطابقة لبحثك.</p>';
+        return;
+      }
+
+      list.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <div class="card-header">
+            <h3 class="product-title">${p.name}</h3>
+            <span class="price-tag">${p.price}</span>
+          </div>
+          <div class="badges">
+            ${p.isFasting ? '<span class="badge badge-fasting">🌱 صيامي / نباتي</span>' : ''}
+            ${p.diabeticFriendly ? '<span class="badge badge-sugar">💙 مناسب للسكر</span>' : ''}
+          </div>
+          <div class="details"><strong>المكونات:</strong> ${p.ingredients}</div>
+          <div class="allergens">⚠️ <strong>تنبيه الحساسية:</strong> يحتوي على (${p.allergens})</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterProducts() {
+      const searchText = document.getElementById('searchInput').value.toLowerCase();
+      
+      const filtered = products.filter(p => {
+        const matchesSearch = p.name.toLowerCase().includes(searchText) || p.ingredients.toLowerCase().includes(searchText);
+        let matchesFilter = true;
+        if (currentFilter === 'fasting') matchesFilter = p.isFasting;
+        if (currentFilter === 'diabetic') matchesFilter = p.diabeticFriendly;
+        return matchesSearch && matchesFilter;
+      });
+
+      renderProducts(filtered);
+    }
+
+    function setFilter(type, btn) {
+      currentFilter = type;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    }
+
+    renderProducts(products);
+  </script>
+
+</body>
+</html>
