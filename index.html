@@ -48,8 +48,7 @@
     <div class="filters">
       <button class="filter-btn active" onclick="setFilter('all', this)">الكل</button>
       <button class="filter-btn" onclick="setFilter('fasting', this)">🌱 صيامي فقط</button>
-      <button class="filter-btn" onclick="setFilter('diabetic', this)">💙 مناسب للسكر</button>
-    </div>
+<button class="filter-btn" onclick="setFilter('diabetic', this)">🌾 منتجات الحبة الكاملة (دايت)</button>
   </div>
 
   <div class="products-grid" id="productsList"></div>
@@ -145,7 +144,16 @@
         diabeticFriendly: false,
         ingredients: "دقيق، صلصة، حبة البركة، سمنة نباتي، خميرة طبيعية، ملح، ماء، (جبنة اسطنبولي / بسطرمة)",
         allergens: "جلوتين، ألبان"
-      }
+      },
+      {
+  id: 11,
+  name: "قراقيش الحبة الكاملة (يانسون / سادة / عجوة / مملحه)",
+  price: "العلبة: 40 جـ",
+  isFasting: false,
+  diabeticFriendly: true,
+  ingredients: "دقيق حبة كاملة، زبدة صفراء، زيت زيتون، خميرة طبيعية، ملح، ماء، (يانسون / تمر / حبة البركة)",
+  allergens: "جلوتين، ألبان"
+     }
     ];
 
     let currentFilter = 'all';
