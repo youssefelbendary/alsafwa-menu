@@ -260,18 +260,21 @@ const menuData = [
     { name: "بيتي فور (نصف كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "110 جـ", sub: "الوزن: 500g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة طبيعي، صفار بيض، سكر بودرة، مربى، فورماسيل", allergens: "جلوتين، ألبان، بيض" },
 
     // ===== حبة كاملة وشوفان (غني بالألياف) =====
-    { name: "قراقيش الحبة الكاملة (يانسون / سادة / عجوة / مملحه)", category: "حبة كاملة وشوفان", label: "العلبة:", price: "40 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: false, fiber: true, ingredients: "زبدة صفراء, زيت زيتون , خميرة طبيعية , ملح , ماء, (يانسون / تمر / حبة البركة )", allergens: "جلوتين , ألبان" },
-    { name: "فينو حبة كاملة كبير (4 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، ماء، خميرة، زيت نباتي", allergens: "جلوتين" },
-    { name: "فينو حبة كاملة صغير (7 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 1.5 جـ", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، ماء، خميرة، زيت نباتي", allergens: "جلوتين" },
-    { name: "كايزر حبة كاملة (4 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، سمسم، خميرة، زيت نباتي، ماء", allergens: "جلوتين، سمسم" },
-    { name: "بقسماط حبة كاملة", category: "حبة كاملة وشوفان", label: "الباكيت:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، كمون، حبة البركة، زيت نباتي", allergens: "جلوتين" },
-    { name: "باتون ساليه حبة كاملة", category: "حبة كاملة وشوفان", label: "الباكيت:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، زيت نباتي، كمون، ملح", allergens: "جلوتين" },
-    { name: "قرص عجوة حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "40 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، زيت نباتي، عجوة، سمسم", allergens: "جلوتين، سمسم" },
-    { name: "شرائح شيبس حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، زيت نباتي، ملح، بهارات", allergens: "جلوتين" },
-    { name: "كوكيز حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: false, fiber: true, ingredients: "دقيق قمح كامل (سن)، زبدة، بيض، سكر بني، شوفان", allergens: "جلوتين، ألبان، بيض" },
-    { name: "بسكويت حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: false, fiber: true, ingredients: "دقيق قمح كامل (سن)، زبدة، سكر بني، شوفان", allergens: "جلوتين، ألبان" },
-    { name: "بسكويت شوفان", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌱 شوفان", healthy: true, fasting: true, fiber: true, ingredients: "دقيق شوفان مطحون، رقائق شوفان، زيت نباتي، عسل أبيض", allergens: "جلوتين" },
-    { name: "بسكويت شوفان نسكافيه", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌱 شوفان نسكافيه", healthy: true, fasting: true, fiber: true, ingredients: "دقيق شوفان مطحون، رقائق شوفان، نسكافيه، زيت نباتي، عسل أبيض", allergens: "جلوتين" }
+    // --- منتجات الحبة الكاملة (10 منتجات تم تحديث المكونات ونوع الشارة) ---
+    { name: "قراقيش الحبة الكاملة (يانسون / سادة / عجوة / مملحه)", category: "حبة كاملة وشوفان", label: "العلبة:", price: "40 جـ", sub: "🌾 حبة كاملة", healthy: true, isOat: false, fasting: false, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، زبدة صفراء، زيت زيتون، خميرة طبيعية، ملح، ماء، (يانسون / تمر / حبة البركة)", allergens: "جلوتين، ألبان" },
+    { name: "فينو حبة كاملة كبير (4 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: true, isOat: false, fasting: true, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، ماء، خميرة، زيت نباتي", allergens: "جلوتين" },
+    { name: "فينو حبة كاملة صغير (7 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 1.5 جـ", healthy: true, isOat: false, fasting: true, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، ماء، خميرة، زيت نباتي", allergens: "جلوتين" },
+    { name: "كايزر حبة كاملة (4 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: true, isOat: false, fasting: true, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، سمسم، خميرة، زيت نباتي، ماء", allergens: "جلوتين، سمسم" },
+    { name: "بقسماط حبة كاملة", category: "حبة كاملة وشوفان", label: "الباكيت:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, isOat: false, fasting: true, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، كمون، حبة البركة، زيت نباتي", allergens: "جلوتين" },
+    { name: "باتون ساليه حبة كاملة", category: "حبة كاملة وشوفان", label: "الباكيت:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, isOat: false, fasting: true, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، زيت نباتي، كمون، ملح", allergens: "جلوتين" },
+    { name: "قرص عجوة حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "40 جـ", sub: "🌾 حبة كاملة", healthy: true, isOat: false, fasting: true, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، زيت نباتي، عجوة، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "شرائح شيبس حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, isOat: false, fasting: true, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، زيت نباتي، ملح، بهارات", allergens: "جلوتين" },
+    { name: "كوكيز حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌾 حبة كاملة", healthy: true, isOat: false, fasting: false, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، زبدة، بيض، سكر بني، شوفان", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌾 حبة كاملة", healthy: true, isOat: false, fasting: false, fiber: true, ingredients: "دقيق قمح كامل استخراج 96%، زبدة، سكر بني، شوفان", allergens: "جلوتين، ألبان" },
+
+    // --- منتجات الشوفان (بدون تغيير في دقيق الحبة الكاملة) ---
+    { name: "بسكويت شوفان", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌱 شوفان", healthy: true, isOat: true, fasting: true, fiber: true, ingredients: "دقيق شوفان مطحون، رقائق شوفان، زيت نباتي، عسل أبيض", allergens: "جلوتين" },
+    { name: "بسكويت شوفان نسكافيه", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌱 شوفان نسكافيه", healthy: true, isOat: true, fasting: true, fiber: true, ingredients: "دقيق شوفان مطحون، رقائق شوفان، نسكافيه، زيت نباتي، عسل أبيض", allergens: "جلوتين" }
 ];
 
 let currentCategory = 'all';
@@ -292,7 +295,12 @@ function renderMenu(items) {
 
         const cardClass = item.healthy ? 'menu-card healthy-border' : 'menu-card';
         const badgeClass = item.healthy ? 'badge-healthy' : 'badge-primary-custom';
-        const tagText = item.healthy ? 'حبة كاملة / شوفان' : 'الصفوة';
+        
+        // تحديد نص الشارة بناءً على ما إذا كان المنتج شوفان أم حبة كاملة أم منيو عادي
+        let tagText = 'الصفوة';
+        if (item.healthy) {
+            tagText = item.isOat ? '🌱 شوفان' : '🌾 حبة كاملة';
+        }
 
         const fastingBadge = item.fasting ? '<span class="badge badge-fasting me-1">🌱 صيامي</span>' : '';
         const fiberBadge = item.fiber ? '<span class="badge badge-fiber me-1">🌾 غني بالألياف</span>' : '';
