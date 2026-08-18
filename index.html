@@ -13,6 +13,7 @@
             --bg-light: #fafcfb;
             --healthy-color: #7A4A21;
             --fasting-color: #27ae60;
+            --fiber-color: #b8860b;
         }
 
         body {
@@ -103,8 +104,8 @@
             font-size: 0.75rem;
         }
 
-        .badge-diabetic {
-            background-color: #0284c7;
+        .badge-fiber {
+            background-color: var(--fiber-color);
             color: #fff;
             font-size: 0.75rem;
         }
@@ -164,7 +165,7 @@
                 <span class="input-group-text bg-white"><i class="fa-solid fa-magnifying-glass text-muted"></i></span>
                 <input type="text" id="searchInput" class="form-control form-control-lg" placeholder="ابحث عن صنف أو مكونات...">
             </div>
-            
+
             <div class="d-flex flex-wrap justify-content-center gap-1 mb-2">
                 <button class="btn fasting-filter-btn" id="fastingToggle" onclick="toggleFastingFilter()">
                     🌱 أصناف صيامي فقط
@@ -189,47 +190,88 @@
 
 <script>
 const menuData = [
-    // باتيه وبيتزا
-    { name: "باتيه جبنة تركي / بيضاء", category: "باتيه وبيتزا", label: "القطعة:", price: "12 جـ", sub: "الكيلو ميني: 120 جـ", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، جبنة (تركي/بيضاء)", allergens: "جلوتين، ألبان، بيض" },
-    { name: "باتيه كيري بسطرمة / شوكولاتة", category: "باتيه وبيتزا", label: "القطعة:", price: "14 جـ", sub: "طازجة يومياً", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، (جبنة كيري وبسطرمة / شوكولاتة)", allergens: "جلوتين، ألبان، بيض" },
-    { name: "كرواسون (جبنة بيضاء / شوكولاتة)", category: "باتيه وبيتزا", label: "الكيلو ميني:", price: "120 جـ", sub: "ميني طازج", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، (جبنة بيضاء / شوكولاتة)", allergens: "جلوتين، ألبان، بيض" },
-    { name: "دنش", category: "باتيه وبيتزا", label: "القطعة:", price: "15 جـ", sub: "طازجة يومياً", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء", allergens: "جلوتين، ألبان، بيض" },
-    { name: "بيتزا كبيرة", category: "باتيه وبيتزا", label: "القطعة:", price: "15 جـ", sub: "حجم كبير", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، صلصة، طماطم، فلفل، جبنة تركي", allergens: "جلوتين، ألبان، بيض" },
-    { name: "ميني بيتزا", category: "باتيه وبيتزا", label: "الكيلو:", price: "120 جـ", sub: "تشكيلة ميني", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، صلصة، طماطم، فلفل، جبنة تركي", allergens: "جلوتين، ألبان، بيض" },
-    { name: "بوريك (جبنة اسطنبولي / بسطرمة)", category: "باتيه وبيتزا", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق، صلصة، حبة البركة، سمنة نباتي، خميرة طبيعية، ملح، ماء، (جبنة اسطنبولي / بسطرمة)", allergens: "جلوتين، ألبان" },
+    // ===== باتيه وبيتزا =====
+    { name: "باتيه جبنة تركي / بيضاء", category: "باتيه وبيتزا", label: "القطعة:", price: "12 جـ", sub: "الكيلو ميني: 120 جـ", healthy: false, fasting: false, fiber: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، جبنة (تركي/بيضاء)", allergens: "جلوتين، ألبان، بيض" },
+    { name: "باتيه كيري بسطرمة / شوكولاتة", category: "باتيه وبيتزا", label: "القطعة:", price: "14 جـ", sub: "طازجة يومياً", healthy: false, fasting: false, fiber: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، (جبنة كيري وبسطرمة / شوكولاتة)", allergens: "جلوتين، ألبان، بيض" },
+    { name: "كرواسون (جبنة بيضاء / شوكولاتة)", category: "باتيه وبيتزا", label: "الكيلو ميني:", price: "120 جـ", sub: "ميني طازج", healthy: false, fasting: false, fiber: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، (جبنة بيضاء / شوكولاتة)", allergens: "جلوتين، ألبان، بيض" },
+    { name: "دنش", category: "باتيه وبيتزا", label: "القطعة:", price: "15 جـ", sub: "طازجة يومياً", healthy: false, fasting: false, fiber: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بيتزا كبيرة", category: "باتيه وبيتزا", label: "القطعة:", price: "15 جـ", sub: "حجم كبير", healthy: false, fasting: false, fiber: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، صلصة، طماطم، فلفل، جبنة تركي", allergens: "جلوتين، ألبان، بيض" },
+    { name: "ميني بيتزا", category: "باتيه وبيتزا", label: "الكيلو:", price: "120 جـ", sub: "تشكيلة ميني", healthy: false, fasting: false, fiber: false, ingredients: "دقيق أبيض، خميرة طبيعية، زبدة صفراء، بيض، ملح، سكر، ماء، صلصة، طماطم، فلفل، جبنة تركي", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بوريك (جبنة اسطنبولي / بسطرمة)", category: "باتيه وبيتزا", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، صلصة، حبة البركة، سمنة نباتي، خميرة طبيعية، ملح، ماء، (جبنة اسطنبولي / بسطرمة)", allergens: "جلوتين، ألبان" },
 
-    // الناعم والحلويات
-    { name: "قراقيش زبدة", category: "الناعم والحلويات", label: "الربع:", price: "32.5 جـ", sub: "الكيلو: 130 جـ", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق، محلب، خميرة طبيعية، زبدة صفراء، ملح، ماء", allergens: "جلوتين، ألبان" },
-    { name: "قراقيش سادة", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، خميرة، زيت وسمنة نباتي، ملح، ماء", allergens: "جلوتين" },
-    { name: "قراقيش ينسون", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، ينسون، خميرة، زيت وسمنة نباتي، ملح، ماء", allergens: "جلوتين" },
-    { name: "شرائح عجوة", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، زيت نباتي، عجوة، سمسم، يانسون، شمر", allergens: "جلوتين" },
-    { name: "سنتلوزة عجوة", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، زيت نباتي، عجوة، سمسم", allergens: "جلوتين" },
-    { name: "كعب غزال", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، زيت نباتي، عجوة، سمسم غزير", allergens: "جلوتين" },
-    { name: "قرص عجوة سمسم", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، زيت نباتي، عجوة فاخرة، سمسم", allergens: "جلوتين" },
-    { name: "حجازية", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق سميد، دقيق أبيض، زيت نباتي، قرفة، سكر، سوداني", allergens: "جلوتين، سوداني" },
-    { name: "هريسة مكسرات", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق سميد، عسل، زيت نباتي، مكسرات مشكلة", allergens: "جلوتين، مكسرات" },
+    // ===== الناعم والحلويات =====
+    { name: "قراقيش زبدة", category: "الناعم والحلويات", label: "الربع:", price: "32.5 جـ", sub: "الكيلو: 130 جـ", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، محلب، خميرة طبيعية، زبدة صفراء، ملح، ماء", allergens: "جلوتين، ألبان" },
+    { name: "قراقيش زبدة مسكرة", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، محلب، خميرة طبيعية، زبدة صفراء، سكر بودرة، ملح، ماء", allergens: "جلوتين، ألبان" },
+    { name: "قراقيش جبنة تركي", category: "الناعم والحلويات", label: "الربع:", price: "40 جـ", sub: "الكيلو: 160 جـ", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، خميرة طبيعية، زيت نباتي، جبنة تركي، ملح، ماء", allergens: "جلوتين، ألبان" },
+    { name: "قراقيش سادة", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، خميرة، زيت وسمنة نباتي، ملح، ماء", allergens: "جلوتين" },
+    { name: "قراقيش ينسون", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، ينسون، خميرة، زيت وسمنة نباتي، ملح، ماء", allergens: "جلوتين" },
+    { name: "شرائح عجوة", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، عجوة، سمسم، يانسون، شمر", allergens: "جلوتين، سمسم" },
+    { name: "سنتلوزة عجوة", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، عجوة، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "سنتلوزة ملبن", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، ملبن، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "سنتلوزة ملبن جوز هند", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، ملبن، جوز هند، سمسم", allergens: "جلوتين، سمسم، جوز هند" },
+    { name: "كعب غزال", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، عجوة، سمسم غزير", allergens: "جلوتين، سمسم" },
+    { name: "قرص سادة", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، خميرة، سمسم، ملح", allergens: "جلوتين، سمسم" },
+    { name: "قرص عجوة", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، عجوة، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "قرص عجوة سمسم", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، عجوة فاخرة، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "قرص ملبن", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، ملبن، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "قرص ملبن قرفة", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، ملبن، قرفة، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "برازق", category: "الناعم والحلويات", label: "الربع:", price: "40 جـ", sub: "الكيلو: 160 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، سمسم، يانسون، شمر", allergens: "جلوتين، سمسم" },
+    { name: "عسلية", category: "الناعم والحلويات", label: "الربع:", price: "40 جـ", sub: "الكيلو: 160 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق سميد، عسل، زيت نباتي، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "حرف S", category: "الناعم والحلويات", label: "الربع:", price: "40 جـ", sub: "الكيلو: 160 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، سكر، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "حجازية", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق سميد، دقيق أبيض، زيت نباتي، قرفة، سكر، سوداني", allergens: "جلوتين، سوداني" },
+    { name: "هريسة سادة", category: "الناعم والحلويات", label: "الربع:", price: "30 جـ", sub: "الكيلو: 120 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق سميد، عسل، زيت نباتي، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "هريسة مكسرات", category: "الناعم والحلويات", label: "الربع:", price: "35 جـ", sub: "الكيلو: 140 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق سميد، عسل، زيت نباتي، مكسرات مشكلة", allergens: "جلوتين، مكسرات" },
+    { name: "جلاش", category: "الناعم والحلويات", label: "الربع:", price: "40 جـ", sub: "الكيلو: 160 جـ", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة صفراء، سكر، مكسرات، شربات", allergens: "جلوتين، ألبان، مكسرات" },
+    { name: "كنافة صوابع", category: "الناعم والحلويات", label: "الربع:", price: "40 جـ", sub: "الكيلو: 160 جـ", healthy: false, fasting: false, fiber: false, ingredients: "كنافة، زبدة صفراء، مكسرات، شربات", allergens: "جلوتين، ألبان، مكسرات" },
 
-    // الفينو والمخبوزات
-    { name: "فينو (7 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 1.5 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق أبيض، ماء، خميرة، زيت، سكر، ملح", allergens: "جلوتين" },
-    { name: "فينو (10 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "15 جـ", sub: "الرغيف: 1.5 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق أبيض، ماء، خميرة، زيت، سكر، ملح", allergens: "جلوتين" },
-    { name: "بيتي بان شاورما (4 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق فاخر، ماء، خميرة، زيت نباتي، محسن خبيز", allergens: "جلوتين" },
-    { name: "كايزر (4 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق فاخر، سمسم، خميرة، زيت نباتي، ماء", allergens: "جلوتين، سمسم" },
+    // ===== الفينو والمخبوزات =====
+    { name: "فينو (7 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 1.5 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق أبيض، ماء، خميرة، زيت، سكر، ملح", allergens: "جلوتين" },
+    { name: "فينو (10 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "15 جـ", sub: "الرغيف: 1.5 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق أبيض، ماء، خميرة، زيت، سكر، ملح", allergens: "جلوتين" },
+    { name: "بيتي بان شاورما (4 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق فاخر، ماء، خميرة، زيت نباتي، محسن خبيز", allergens: "جلوتين" },
+    { name: "بيتي بان صغير (7 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 1.5 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق فاخر، ماء، خميرة، زيت نباتي، محسن خبيز", allergens: "جلوتين" },
+    { name: "كايزر (4 رغيف)", category: "الفينو والمخبوزات", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: false, fasting: true, fiber: false, ingredients: "دقيق فاخر، سمسم، خميرة، زيت نباتي، ماء", allergens: "جلوتين، سمسم" },
 
-    // البقسماط والتوست
-    { name: "بقسماط (باكيت صغير)", category: "البقسماط والتوست", label: "السعر:", price: "20 جـ", sub: "الوزن: ~200g", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، ماء، زيت نباتي، سمسم، كمون، ملح", allergens: "جلوتين، سمسم" },
-    { name: "باتون ساليه (باكيت كبير)", category: "البقسماط والتوست", label: "السعر:", price: "35 جـ", sub: "الوزن: ~300g", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق، زيت نباتي، كمون عريض، ملح، كمون حصى", allergens: "جلوتين" },
-    { name: "توست أصفر (كبير)", category: "البقسماط والتوست", label: "السعر:", price: "30 جـ", sub: "الوزن: 300g", healthy: false, fasting: true, diabeticFriendly: false, ingredients: "دقيق أبيض، كركم، زيت نباتي، خميرة، ماء", allergens: "جلوتين" },
+    // ===== البقسماط والتوست =====
+    { name: "بقسماط (باكيت صغير)", category: "البقسماط والتوست", label: "السعر:", price: "20 جـ", sub: "الوزن: ~200g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، ماء، زيت نباتي، سمسم، كمون، ملح", allergens: "جلوتين، سمسم" },
+    { name: "بقسماط (باكيت كبير)", category: "البقسماط والتوست", label: "السعر:", price: "30 جـ", sub: "الوزن: ~300g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، ماء، زيت نباتي، سمسم، كمون، ملح", allergens: "جلوتين، سمسم" },
+    { name: "بقسماط سادة (باكيت)", category: "البقسماط والتوست", label: "السعر:", price: "20 جـ", sub: "الوزن: ~200g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، ماء، زيت نباتي، ملح", allergens: "جلوتين" },
+    { name: "باتون ساليه (باكيت صغير)", category: "البقسماط والتوست", label: "السعر:", price: "25 جـ", sub: "الوزن: ~200g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، كمون، ملح", allergens: "جلوتين" },
+    { name: "باتون ساليه (باكيت كبير)", category: "البقسماط والتوست", label: "السعر:", price: "35 جـ", sub: "الوزن: ~300g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، كمون عريض، ملح، كمون حصى", allergens: "جلوتين" },
+    { name: "باتون ساليه سادة (باكيت)", category: "البقسماط والتوست", label: "السعر:", price: "20 جـ", sub: "الوزن: ~200g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق، زيت نباتي، ملح", allergens: "جلوتين" },
+    { name: "توست أصفر (صغير)", category: "البقسماط والتوست", label: "السعر:", price: "20 جـ", sub: "الوزن: 200g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق أبيض، كركم، زيت نباتي، خميرة، ماء", allergens: "جلوتين" },
+    { name: "توست أصفر (كبير)", category: "البقسماط والتوست", label: "السعر:", price: "30 جـ", sub: "الوزن: 300g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق أبيض، كركم، زيت نباتي، خميرة، ماء", allergens: "جلوتين" },
+    { name: "توست أسمر (صغير)", category: "البقسماط والتوست", label: "السعر:", price: "20 جـ", sub: "الوزن: 200g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق أسمر، زيت نباتي، خميرة، ماء", allergens: "جلوتين" },
+    { name: "توست أسمر (كبير)", category: "البقسماط والتوست", label: "السعر:", price: "30 جـ", sub: "الوزن: 300g", healthy: false, fasting: true, fiber: false, ingredients: "دقيق أسمر، زيت نباتي، خميرة، ماء", allergens: "جلوتين" },
 
-    // البسكويت والكوكيز
-    { name: "بسكويت شطرنج", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق، زبدة، بيض، سكر، كاكاو، فانيليا", allergens: "جلوتين، ألبان، بيض" },
-    { name: "كوكيز (ربع كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "50 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق، زبدة، بيض، سكر بني، شوكليت شيبس", allergens: "جلوتين، ألبان، بيض" },
-    { name: "بيتي فور (ربع كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "55 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, diabeticFriendly: false, ingredients: "دقيق، زبدة طبيعي، صفار بيض، سكر بودرة، مربى، فورماسيل", allergens: "جلوتين، ألبان، بيض" },
+    // ===== البسكويت والكوكيز =====
+    { name: "بسكويت شطرنج", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، كاكاو، فانيليا", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت نسكافيه", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، نسكافيه", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت قهوة", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، قهوة", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت يانسون", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، يانسون", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت برتقال", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، نكهة برتقال طبيعية", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت فانيليا", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، فانيليا", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت بسكريم", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، كريمة", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت قرفة بالسوداني", category: "البسكويت والكوكيز", label: "العلبة:", price: "45 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر، قرفة، سوداني", allergens: "جلوتين، ألبان، بيض، سوداني" },
+    { name: "كوكيز (ثمن كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "25 جـ", sub: "الوزن: 125g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر بني، شوكليت شيبس", allergens: "جلوتين، ألبان، بيض" },
+    { name: "كوكيز (ربع كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "50 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر بني، شوكليت شيبس", allergens: "جلوتين، ألبان، بيض" },
+    { name: "كوكيز (نصف كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "100 جـ", sub: "الوزن: 500g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر بني، شوكليت شيبس", allergens: "جلوتين، ألبان، بيض" },
+    { name: "كوكيز (كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "200 جـ", sub: "الوزن: 1 كيلو", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة، بيض، سكر بني، شوكليت شيبس", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بيتي فور (ربع كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "55 جـ", sub: "الوزن: 250g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة طبيعي، صفار بيض، سكر بودرة، مربى، فورماسيل", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بيتي فور (نصف كيلو)", category: "البسكويت والكوكيز", label: "السعر:", price: "110 جـ", sub: "الوزن: 500g", healthy: false, fasting: false, fiber: false, ingredients: "دقيق، زبدة طبيعي، صفار بيض، سكر بودرة، مربى، فورماسيل", allergens: "جلوتين، ألبان، بيض" },
 
-    // حبة كاملة وشوفان (دايت/مناسب للسكر)
-    { name: "قراقيش الحبة الكاملة (يانسون / سادة / عجوة / مملحه)", category: "حبة كاملة وشوفان", label: "العلبة:", price: "40 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: false, diabeticFriendly: true, ingredients: "زبدة صفراء, زيت زيتون , خميرة طبيعية , ملح , ماء, (يانسون / تمر / حبة البركة )", allergens: "جلوتين , ألبان" },
-    { name: "فينو حبة كاملة كبير (4 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: true, fasting: true, diabeticFriendly: true, ingredients: "دقيق قمح كامل (سن)، ماء، خميرة، زيت نباتي", allergens: "جلوتين" },
-    { name: "بقسماط حبة كاملة", category: "حبة كاملة وشوفان", label: "الباكيت:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, diabeticFriendly: true, ingredients: "دقيق قمح كامل (سن)، كمون، حبة البركة، زيت نباتي", allergens: "جلوتين" },
-    { name: "بسكويت شوفان", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌱 شوفان", healthy: true, fasting: true, diabeticFriendly: true, ingredients: "دقيق شوفان مطحون، رقائق شوفان، زيت نباتي، عسل أبيض", allergens: "جلوتين" }
+    // ===== حبة كاملة وشوفان (غني بالألياف) =====
+    { name: "قراقيش الحبة الكاملة (يانسون / سادة / عجوة / مملحه)", category: "حبة كاملة وشوفان", label: "العلبة:", price: "40 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: false, fiber: true, ingredients: "زبدة صفراء, زيت زيتون , خميرة طبيعية , ملح , ماء, (يانسون / تمر / حبة البركة )", allergens: "جلوتين , ألبان" },
+    { name: "فينو حبة كاملة كبير (4 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، ماء، خميرة، زيت نباتي", allergens: "جلوتين" },
+    { name: "فينو حبة كاملة صغير (7 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 1.5 جـ", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، ماء، خميرة، زيت نباتي", allergens: "جلوتين" },
+    { name: "كايزر حبة كاملة (4 رغيف)", category: "حبة كاملة وشوفان", label: "الكيس:", price: "10 جـ", sub: "الرغيف: 2.5 جـ", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، سمسم، خميرة، زيت نباتي، ماء", allergens: "جلوتين، سمسم" },
+    { name: "بقسماط حبة كاملة", category: "حبة كاملة وشوفان", label: "الباكيت:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، كمون، حبة البركة، زيت نباتي", allergens: "جلوتين" },
+    { name: "باتون ساليه حبة كاملة", category: "حبة كاملة وشوفان", label: "الباكيت:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، زيت نباتي، كمون، ملح", allergens: "جلوتين" },
+    { name: "قرص عجوة حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "40 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، زيت نباتي، عجوة، سمسم", allergens: "جلوتين، سمسم" },
+    { name: "شرائح شيبس حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "25 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: true, fiber: true, ingredients: "دقيق قمح كامل (سن)، زيت نباتي، ملح، بهارات", allergens: "جلوتين" },
+    { name: "كوكيز حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: false, fiber: true, ingredients: "دقيق قمح كامل (سن)، زبدة، بيض، سكر بني، شوفان", allergens: "جلوتين، ألبان، بيض" },
+    { name: "بسكويت حبة كاملة", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌾 حبة كاملة", healthy: true, fasting: false, fiber: true, ingredients: "دقيق قمح كامل (سن)، زبدة، سكر بني، شوفان", allergens: "جلوتين، ألبان" },
+    { name: "بسكويت شوفان", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌱 شوفان", healthy: true, fasting: true, fiber: true, ingredients: "دقيق شوفان مطحون، رقائق شوفان، زيت نباتي، عسل أبيض", allergens: "جلوتين" },
+    { name: "بسكويت شوفان نسكافيه", category: "حبة كاملة وشوفان", label: "العلبة:", price: "50 جـ", sub: "🌱 شوفان نسكافيه", healthy: true, fasting: true, fiber: true, ingredients: "دقيق شوفان مطحون، رقائق شوفان، نسكافيه، زيت نباتي، عسل أبيض", allergens: "جلوتين" }
 ];
 
 let currentCategory = 'all';
@@ -247,13 +289,13 @@ function renderMenu(items) {
     items.forEach(item => {
         const col = document.createElement('div');
         col.className = 'col-6 col-md-4 col-lg-3';
-        
+
         const cardClass = item.healthy ? 'menu-card healthy-border' : 'menu-card';
         const badgeClass = item.healthy ? 'badge-healthy' : 'badge-primary-custom';
         const tagText = item.healthy ? 'حبة كاملة / شوفان' : 'الصفوة';
-        
+
         const fastingBadge = item.fasting ? '<span class="badge badge-fasting me-1">🌱 صيامي</span>' : '';
-        const diabeticBadge = item.diabeticFriendly ? '<span class="badge badge-diabetic me-1">💙 مناسب للسكر</span>' : '';
+        const fiberBadge = item.fiber ? '<span class="badge badge-fiber me-1">🌾 غني بالألياف</span>' : '';
 
         col.innerHTML = `
             <div class="${cardClass} p-3 text-center d-flex flex-column justify-content-between">
@@ -261,7 +303,7 @@ function renderMenu(items) {
                     <div class="mb-2 d-flex justify-content-center flex-wrap gap-1">
                         <span class="badge ${badgeClass}">${tagText}</span>
                         ${fastingBadge}
-                        ${diabeticBadge}
+                        ${fiberBadge}
                     </div>
                     <h6 class="fw-bold text-dark mb-1">${item.name}</h6>
                     <div class="ingredients-text">
@@ -286,7 +328,7 @@ function renderMenu(items) {
 
 function filterCategory(cat) {
     currentCategory = cat;
-    
+
     document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
     event.target.classList.add('active');
 
@@ -306,7 +348,7 @@ function toggleFastingFilter() {
 
 function applyFilters() {
     const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
-    
+
     let filtered = menuData.filter(item => {
         const matchesCategory = (currentCategory === 'all') || (item.category === currentCategory);
         const matchesSearch = item.name.toLowerCase().includes(searchTerm) || item.ingredients.toLowerCase().includes(searchTerm);
