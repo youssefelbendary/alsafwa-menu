@@ -3,11 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مخبوزات الصفوة | خبز ومعجنات طازجة يوميًا</title>
-<meta name="description" content="مخبوزات الصفوة - أجود أنواع الخبز والمعجنات والحلويات الشرقية، طازجة يوميًا في فروعنا.">
+<title>مخبوزات الصفوة العصافرة | مخبوزات وحلويات طازجة — الإسكندرية</title>
+<meta name="description" content="مخبوزات الصفوة بالعصافرة، الإسكندرية: خبز ومعجنات وحلويات شرقية ومنتجات حبة كاملة ودايت، طازجة يوميًا. فرعان في جمال عبدالناصر، اطلب أونلاين أو على واتساب.">
+<meta name="keywords" content="مخبوزات الصفوة, مخبوزات العصافرة, حلويات الإسكندرية, مخبز العصافرة, حبة كاملة, معجنات, جمال عبدالناصر">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#006B3D">
+<link rel="canonical" href="https://elsafwabakery.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="مخبوزات الصفوة">
+<meta property="og:title" content="مخبوزات الصفوة العصافرة | مخبوزات وحلويات طازجة">
+<meta property="og:description" content="خبز ومعجنات وحلويات شرقية ومنتجات دايت وحبة كاملة، طازجة يوميًا. فرعان بالعصافرة، الإسكندرية.">
+<meta property="og:image" content="logo.png">
+<meta property="og:locale" content="ar_EG">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="icon" type="image/png" href="logo.png">
+<link rel="apple-touch-icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;600;700&family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": "مخبوزات الصفوة",
+  "alternateName": "Alsafwa Bakery",
+  "image": "logo.png",
+  "email": "elsafwabakery@gmail.com",
+  "priceRange": "$",
+  "servesCuisine": "مخبوزات وحلويات",
+  "department": [
+    {
+      "@type": "Bakery",
+      "name": "مخبوزات الصفوة — الفرع الأول (الرئيسي)",
+      "telephone": "+201066399888",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "3 شارع محمود جمعة، بجوار أسواق الشريف",
+        "addressLocality": "العصافرة، جمال عبدالناصر",
+        "addressRegion": "الإسكندرية",
+        "addressCountry": "EG"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    },
+    {
+      "@type": "Bakery",
+      "name": "مخبوزات الصفوة — الفرع الثاني",
+      "telephone": "+201028525794",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "شارع الملازم بسيوني، برج مكة، بجوار جزارة أنعام الريف",
+        "addressLocality": "العصافرة، جمال عبدالناصر",
+        "addressRegion": "الإسكندرية",
+        "addressCountry": "EG"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "12:00",
+        "closes": "02:00"
+      }
+    }
+  ]
+}
+</script>
 <style>
   :root{
     --bg: #FCFBF8;
@@ -139,11 +205,17 @@
     overflow:hidden;
   }
   .hero-grid{
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:50px;
+    display:flex;
+    flex-direction:column;
     align-items:center;
+    text-align:center;
+    gap:0;
+    max-width:720px;
+    margin:0 auto;
   }
+  .hero-grid .eyebrow-line{ justify-content:center; }
+  .hero-grid .hero-actions{ justify-content:center; }
+  .hero p{ margin-inline:auto; }
   .eyebrow-line{
     display:flex; align-items:center; gap:10px;
     color:var(--gold-deep);
@@ -186,18 +258,6 @@
   }
   .btn-ghost:hover{ background:var(--ink); color:var(--white); }
 
-  .hero-art{
-    position:relative;
-    aspect-ratio:1/1;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .hero-art .ring{
-    position:absolute; inset:0;
-    border-radius:50%;
-    background:var(--bg-soft);
-  }
-  .hero-art svg{ position:relative; width:78%; }
-
   /* ---------- section headings ---------- */
   .section{ padding:86px 0; }
   .section-head{
@@ -212,21 +272,7 @@
   .alt{ background:var(--bg-soft); }
 
   /* ---------- about ---------- */
-  .about-grid{
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:60px;
-    align-items:center;
-  }
-  .about-figure{
-    position:relative;
-    background:var(--white);
-    border:1px solid var(--line);
-    border-radius:18px;
-    padding:40px;
-    display:flex; align-items:center; justify-content:center;
-  }
-  .about-figure svg{ width:100%; max-width:280px; }
+  .about-text{ max-width:760px; margin:0 auto; }
   .about-text p{ color:var(--ink-soft); margin-bottom:18px; font-size:17px; }
   .stat-row{
     display:flex; gap:36px;
@@ -271,7 +317,125 @@
     .products-grid{ grid-template-columns:1fr; }
   }
 
-  /* ---------- menu (products) ---------- */
+  /* ---------- menu search ---------- */
+  .menu-search{
+    position:relative;
+    margin-bottom:22px;
+    max-width:440px;
+  }
+  .menu-search input{
+    width:100%;
+    padding:14px 46px 14px 16px;
+    border:1px solid var(--line);
+    border-radius:30px;
+    background:var(--white);
+    font-family:'Almarai', sans-serif;
+    font-size:15px;
+    color:var(--ink);
+  }
+  .menu-search input:focus{ outline:none; border-color:var(--brick); }
+  .menu-search svg{
+    position:absolute;
+    inset-inline-start:16px; top:50%;
+    transform:translateY(-50%);
+    width:19px; height:19px;
+    color:var(--ink-soft);
+    pointer-events:none;
+  }
+  .search-clear{
+    position:absolute;
+    inset-inline-end:14px; top:50%;
+    transform:translateY(-50%);
+    background:none; border:none; cursor:pointer;
+    font-size:20px; color:var(--ink-soft);
+    display:none; line-height:1;
+  }
+  .search-clear.show{ display:block; }
+  .no-results{
+    text-align:center; color:var(--ink-soft);
+    padding:34px 0; font-size:15px;
+  }
+
+  /* ---------- branch extras ---------- */
+  .branch-status{
+    display:inline-flex; align-items:center; gap:6px;
+    font-size:12.5px; font-weight:700;
+    padding:4px 12px; border-radius:20px;
+    margin-bottom:14px;
+  }
+  .branch-status .dot{
+    width:7px; height:7px; border-radius:50%;
+    background:currentColor;
+  }
+  .status-open{ background:rgba(0,110,60,.1); color:var(--green-deep); }
+  .status-closed{ background:rgba(180,60,40,.1); color:#B43C28; }
+  .branch-actions{
+    display:flex; gap:9px; flex-wrap:wrap;
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+  }
+  .branch-actions a{
+    flex:1; min-width:104px;
+    display:inline-flex; align-items:center; justify-content:center; gap:6px;
+    padding:10px 12px;
+    border-radius:22px;
+    border:1px solid var(--line);
+    font-size:13.5px; font-weight:700;
+    white-space:nowrap;
+  }
+  .branch-actions a svg{ width:16px; height:16px; }
+  .ba-call{ background:var(--brick); color:#fff; border-color:var(--brick); }
+  .ba-call:hover{ background:var(--green-deep); }
+  .ba-wa{ background:#25D366; color:#fff; border-color:#25D366; }
+  .ba-map{ color:var(--ink); }
+  .ba-map:hover{ border-color:var(--brick); color:var(--brick); }
+
+  /* ---------- occasions form ---------- */
+  .occasion-grid{
+    display:grid;
+    grid-template-columns:1fr 1.05fr;
+    gap:44px;
+    align-items:start;
+  }
+  @media (max-width:880px){ .occasion-grid{ grid-template-columns:1fr; gap:32px; } }
+  .occasion-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:30px;
+  }
+  .occasion-note{
+    background:rgba(255,122,0,.09);
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:14px;
+    color:#9C4A00;
+    margin-bottom:22px;
+  }
+  .occ-row{ display:flex; gap:12px; }
+  .occ-row .field{ flex:1; }
+  @media (max-width:520px){ .occ-row{ flex-direction:column; gap:0; } }
+
+  /* ---------- hero order CTA ---------- */
+  .order-cta{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--brick);
+    color:#fff;
+    padding:16px 32px;
+    border-radius:32px;
+    font-weight:800;
+    font-size:16.5px;
+    box-shadow:0 6px 18px rgba(0,110,60,.25);
+  }
+  .order-cta:hover{ background:var(--green-deep); }
+  .order-cta svg{ width:20px; height:20px; }
+  .cta-hint{
+    display:block;
+    color:var(--ink-soft);
+    font-size:13.5px;
+    margin-top:12px;
+  }
   .menu-tabs{
     display:flex; gap:10px; flex-wrap:wrap;
     margin-bottom:40px;
@@ -313,19 +477,254 @@
   }
   .menu-item{
     display:flex;
-    align-items:baseline;
+    align-items:center;
     justify-content:space-between;
     gap:14px;
     padding:11px 0;
     border-bottom:1px dashed var(--line);
     font-size:15px;
   }
-  .menu-item .price{
+  .menu-item .name{ flex:1; }
+  .menu-item .opts{
+    display:flex; gap:6px; flex-shrink:0; flex-wrap:wrap;
+    justify-content:flex-end;
+  }
+  .opt-btn{
+    display:inline-flex; align-items:center; gap:5px;
+    padding:6px 13px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:var(--white);
     color:var(--gold-deep);
+    font-family:'Almarai', sans-serif;
     font-weight:700;
-    font-size:13.5px;
+    font-size:12.5px;
     white-space:nowrap;
-    flex-shrink:0;
+    cursor:pointer;
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .opt-btn:hover{
+    background:var(--green-deep);
+    border-color:var(--green-deep);
+    color:var(--white);
+  }
+  .opt-btn.added{
+    background:var(--brick);
+    border-color:var(--brick);
+    color:var(--white);
+  }
+  .opt-btn .plus{ font-size:14px; line-height:1; }
+  .opt-btn .qty-badge{
+    background:rgba(255,255,255,.28);
+    border-radius:10px;
+    padding:0 6px;
+    font-size:11.5px;
+  }
+
+  /* ---------- cart ---------- */
+  .cart-bar{
+    position:fixed;
+    inset-inline:0; bottom:0;
+    z-index:70;
+    background:var(--brick);
+    color:var(--white);
+    padding:14px 22px;
+    display:none;
+    align-items:center; justify-content:space-between;
+    gap:16px;
+    box-shadow:0 -6px 24px rgba(0,0,0,.18);
+  }
+  .cart-bar.show{ display:flex; }
+  .cart-bar .info{ font-weight:700; font-size:15px; }
+  .cart-bar .info small{
+    display:block; font-weight:400; font-size:12.5px; opacity:.85;
+  }
+  .cart-open-btn{
+    background:var(--white);
+    color:var(--brick);
+    border:none;
+    padding:11px 24px;
+    border-radius:24px;
+    font-family:'Almarai', sans-serif;
+    font-weight:700;
+    font-size:14.5px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+
+  .cart-overlay{
+    position:fixed; inset:0;
+    background:rgba(20,25,20,.5);
+    z-index:80;
+    display:none;
+  }
+  .cart-overlay.show{ display:block; }
+  .cart-sheet{
+    position:fixed;
+    inset-inline:0; bottom:0;
+    z-index:90;
+    background:var(--white);
+    border-radius:20px 20px 0 0;
+    max-height:82vh;
+    display:none;
+    flex-direction:column;
+    max-width:620px;
+    margin:0 auto;
+  }
+  .cart-sheet.show{ display:flex; }
+  .cart-head{
+    padding:22px 24px 16px;
+    border-bottom:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .cart-head h3{ font-size:20px; }
+  .cart-close{
+    background:none; border:none; cursor:pointer;
+    font-size:26px; line-height:1; color:var(--ink-soft);
+    padding:0 4px;
+  }
+  .cart-body{
+    overflow-y:auto;
+    padding:8px 24px;
+    flex:1;
+  }
+  .cart-empty{
+    text-align:center; color:var(--ink-soft);
+    padding:40px 0; font-size:15px;
+  }
+  .cart-line{
+    display:flex; align-items:center; gap:12px;
+    padding:14px 0;
+    border-bottom:1px dashed var(--line);
+  }
+  .cart-line .t{ flex:1; font-size:14.5px; }
+  .cart-line .t small{ display:block; color:var(--ink-soft); font-size:12.5px; }
+  .cart-line .sub{
+    color:var(--green-deep); font-weight:700; font-size:14px;
+    white-space:nowrap;
+  }
+  .qty-ctrl{ display:flex; align-items:center; gap:8px; }
+  .qty-ctrl button{
+    width:28px; height:28px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    background:var(--white);
+    color:var(--ink);
+    font-size:16px; line-height:1;
+    cursor:pointer;
+  }
+  .qty-ctrl button:hover{ border-color:var(--brick); color:var(--brick); }
+  .qty-ctrl span{ min-width:20px; text-align:center; font-weight:700; font-size:14.5px; }
+
+  .cart-foot{
+    padding:18px 24px 24px;
+    border-top:1px solid var(--line);
+    background:var(--bg);
+    border-radius:0 0 0 0;
+  }
+
+  /* حقول بيانات العميل */
+  .cust-fields{
+    padding:16px 0 4px;
+    border-top:1px dashed var(--line);
+    margin-top:6px;
+  }
+  .cust-fields h4{
+    font-family:'El Messiri', serif;
+    font-size:16px;
+    margin-bottom:14px;
+  }
+  .field{ margin-bottom:12px; }
+  .field label{
+    display:block;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-bottom:6px;
+    font-weight:700;
+  }
+  .field input,
+  .field textarea,
+  .field select{
+    width:100%;
+    padding:11px 14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    background:var(--white);
+    font-family:'Almarai', sans-serif;
+    font-size:14.5px;
+    color:var(--ink);
+  }
+  .field textarea{ resize:vertical; min-height:62px; }
+  .field input:focus,
+  .field textarea:focus,
+  .field select:focus{
+    outline:none;
+    border-color:var(--brick);
+  }
+  .branch-pick{ display:flex; gap:10px; flex-wrap:wrap; }
+  .branch-opt{
+    flex:1; min-width:150px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:12px 14px;
+    background:var(--white);
+    cursor:pointer;
+    text-align:right;
+    font-family:'Almarai', sans-serif;
+  }
+  .branch-opt b{ display:block; font-size:14px; margin-bottom:3px; }
+  .branch-opt small{ color:var(--ink-soft); font-size:12px; }
+  .branch-opt.sel{
+    border-color:var(--brick);
+    background:rgba(0,110,60,.06);
+  }
+  .branch-opt.sel b{ color:var(--brick); }
+  .cart-total{
+    display:flex; justify-content:space-between;
+    font-family:'El Messiri', serif;
+    font-size:19px;
+    margin-bottom:16px;
+  }
+  .cart-total b{ color:var(--brick); }
+  .cart-actions{ display:flex; gap:10px; flex-wrap:wrap; }
+  .cart-actions .btn{ flex:1; justify-content:center; padding:13px 18px; font-size:14.5px; }
+  .btn-wa{ background:#25D366; color:#fff; }
+  .btn-wa:hover{ background:#1DB954; }
+  .btn-copy{ background:var(--ink); color:#fff; }
+  .btn-copy:hover{ background:var(--green-deep); }
+  .cart-clear{
+    display:block; width:100%; text-align:center;
+    background:none; border:none; cursor:pointer;
+    color:var(--ink-soft); font-family:'Almarai',sans-serif;
+    font-size:13px; margin-top:12px; text-decoration:underline;
+  }
+
+  .toast{
+    position:fixed;
+    bottom:90px; inset-inline:0;
+    margin:0 auto;
+    width:max-content;
+    max-width:88%;
+    background:var(--ink);
+    color:#fff;
+    padding:12px 22px;
+    border-radius:24px;
+    font-size:14px;
+    z-index:100;
+    opacity:0;
+    transition:opacity .25s;
+    pointer-events:none;
+  }
+  .toast.show{ opacity:1; }
+
+  body.cart-active{ padding-bottom:78px; }
+  body.cart-active .wa-float{ bottom:92px; }
+  .wa-float{ transition:bottom .2s ease; }
+  @media (max-width:560px){
+    .menu-item{ flex-wrap:wrap; gap:8px; }
+    .menu-item .opts{ justify-content:flex-start; width:100%; }
+    .cart-bar{ padding:12px 16px; }
+    .cart-bar .info{ font-size:14px; }
   }
 
   /* ---------- branches ---------- */
@@ -446,7 +845,7 @@
       <a href="#about">من نحن</a>
       <a href="#products">منتجاتنا</a>
       <a href="#branches">الفروع</a>
-      <a href="#why">لماذا نحن</a>
+      <a href="#occasions">المناسبات</a>
       <a href="#contact">تواصل</a>
     </nav>
     <a href="#contact" class="nav-cta">اطلب الآن</a>
@@ -466,36 +865,19 @@
       <h1>مخبوزات الصفوة<br>خبز وحلويات تستاهل الاسم</h1>
       <p>من فرن بلدي بدأنا، ودلوقتي بنفرح بيوت كتير في أكتر من فرع. عجين طازج، مكونات مختارة بعناية، وطعم ما بيتغيرش.</p>
       <div class="hero-actions">
-        <a href="#branches" class="btn btn-primary">فروعنا القريبة منك</a>
-        <a href="#contact" class="btn btn-ghost">تواصل معانا</a>
+        <a href="#products" class="order-cta">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 6h15l-1.5 9h-12z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 6L5 3H2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9" cy="19" r="1.6" fill="currentColor"/><circle cx="18" cy="19" r="1.6" fill="currentColor"/></svg>
+          عايز تطلب؟ اضغط هنا
+        </a>
+        <a href="#branches" class="btn btn-ghost">فروعنا</a>
       </div>
-    </div>
-    <div class="hero-art">
-      <div class="ring"></div>
-      <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="110" cy="150" rx="78" ry="20" fill="#F5F2EC"/>
-        <path d="M55 120c0-28 24-55 55-55s55 27 55 55c0 12-9 20-20 20H75c-11 0-20-8-20-20z" stroke="#211C17" stroke-width="2"/>
-        <path d="M75 108c4-14 16-24 35-24s31 10 35 24" stroke="#FF7A00" stroke-width="2" stroke-linecap="round"/>
-        <path d="M90 92c1-6 5-10 9-13M120 79c4 3 8 7 9 13" stroke="#006B3D" stroke-width="2" stroke-linecap="round"/>
-        <path d="M62 140h96" stroke="#211C17" stroke-width="1.4" opacity=".5"/>
-      </svg>
+      <span class="cta-hint">اختار من المنيو، والطلب يتبعت على واتساب في ثانية.</span>
     </div>
   </div>
 </section>
 
 <section class="section" id="about">
-  <div class="wrap about-grid">
-    <div class="about-figure">
-      <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="100" cy="100" r="70" stroke="#E4DED2" stroke-width="2"/>
-        <path d="M60 110c0-25 18-46 40-46s40 21 40 46" stroke="#211C17" stroke-width="2"/>
-        <path d="M50 110h100" stroke="#211C17" stroke-width="2"/>
-        <path d="M68 96c3-10 12-17 22-17M112 79c10 0 19 7 22 17" stroke="#FF7A00" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="100" cy="130" r="3" fill="#006B3D"/>
-        <circle cx="85" cy="132" r="3" fill="#006B3D"/>
-        <circle cx="115" cy="132" r="3" fill="#006B3D"/>
-      </svg>
-    </div>
+  <div class="wrap">
     <div class="about-text">
       <div class="section-head">
         <h2>حكايتنا بدأت من عجينة بسيطة</h2>
@@ -503,7 +885,7 @@
       <p>مخبوزات الصفوة مش مجرد محل بيبيع خبز؛ دي عادة يومية عند ناس كتير بتيجي تشتري رغيفها الطازج أو تاخد صينية معجنات لبيت أهلها. من يوم ما فتحنا، إحنا مؤمنين إن الجودة مبتتنازلش عنها، حتى لو الشغل كبر وبقى عندنا أكتر من فرع.</p>
       <p>كل فرع من فروعنا بيشتغل بنفس المعايير: طحين مختار، عجن يومي، وأفران بتشتغل من الفجر عشان أول رغيف يوصلك سخن.</p>
       <div class="stat-row">
-        <div class="stat"><b>+3</b><span>فروع بتخدم حيك</span></div>
+        <div class="stat"><b>2</b><span>فروع بتخدم حيك</span></div>
         <div class="stat"><b>يومي</b><span>تحضير طازج</span></div>
         <div class="stat"><b>سنين</b><span>خبرة في الفرن</span></div>
       </div>
@@ -514,9 +896,22 @@
 <section class="section alt" id="products">
   <div class="wrap">
     <div class="section-head">
-      <h2>منتجاتنا</h2>
-      <p>المنيو كامل بكل الأصناف والأسعار — اختر التصنيف اللي عايزه.</p>
+      <h2>الأكثر طلبًا</h2>
+      <p>أنواع العيش والحبة الكاملة اللي زبايننا بيطلبوها يوميًا.</p>
     </div>
+    <div id="bestGrid"></div>
+
+    <div class="section-head" style="margin-top:72px;">
+      <h2>المنيو كامل</h2>
+      <p>كل الأصناف والأسعار — دور على اللي عايزه أو اختار تصنيف.</p>
+    </div>
+
+    <div class="menu-search">
+      <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-3.5-3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="search" id="menuSearch" placeholder="دور على صنف… مثلاً: كنافة، قراقيش، توست" aria-label="بحث في المنيو">
+      <button class="search-clear" id="searchClear" type="button" aria-label="مسح البحث">&times;</button>
+    </div>
+
     <div class="menu-tabs" role="tablist">
       <button class="menu-tab active" data-tab="premium" type="button">فاخرة وكيك</button>
       <button class="menu-tab" data-tab="pastries" type="button">معجنات وحلويات شرقي</button>
@@ -525,6 +920,7 @@
     <div class="menu-panel active" id="panel-premium"></div>
     <div class="menu-panel" id="panel-pastries"></div>
     <div class="menu-panel" id="panel-diet"></div>
+    <div class="no-results" id="noResults" style="display:none;">مفيش صنف بالاسم ده. جرب كلمة تانية.</div>
   </div>
 </section>
 
@@ -540,6 +936,7 @@
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
           الفرع الأول (الرئيسي)
         </h3>
+        <div class="branch-status status-open" id="status1"><span class="dot"></span>مفتوح دلوقتي</div>
         <div class="branch-row">
           <svg viewBox="0 0 24 24" fill="none"><path d="M3 10l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z" stroke="currentColor" stroke-width="1.6"/></svg>
           <span>3 شارع محمود جمعة، العصافرة، جمال عبدالناصر، بجوار أسواق الشريف</span>
@@ -552,6 +949,20 @@
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           <span>مفتوح 24 ساعة</span>
         </div>
+        <div class="branch-actions">
+          <a href="tel:+201066399888" class="ba-call">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2L8 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" stroke="currentColor" stroke-width="1.8"/></svg>
+            اتصل
+          </a>
+          <a href="https://wa.me/201066399888" class="ba-wa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3zm0 16.3a7.3 7.3 0 01-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1112 19.3z"/></svg>
+            واتساب
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=3+%D8%B4%D8%A7%D8%B1%D8%B9+%D9%85%D8%AD%D9%85%D9%88%D8%AF+%D8%AC%D9%85%D8%B9%D8%A9+%D8%A7%D9%84%D8%B9%D8%B5%D8%A7%D9%81%D8%B1%D8%A9+%D8%AC%D9%85%D8%A7%D9%84+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%86%D8%A7%D8%B5%D8%B1+%D8%A7%D9%84%D8%A5%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9" class="ba-map" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
+            الطريق
+          </a>
+        </div>
       </div>
 
       <div class="branch-card">
@@ -559,6 +970,7 @@
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
           الفرع الثاني
         </h3>
+        <div class="branch-status" id="status2"><span class="dot"></span><span class="txt">—</span></div>
         <div class="branch-row">
           <svg viewBox="0 0 24 24" fill="none"><path d="M3 10l9-7 9 7v9a2 2 0 01-2 2H5a2 2 0 01-2-2v-9z" stroke="currentColor" stroke-width="1.6"/></svg>
           <span>شارع الملازم بسيوني، برج مكة، العصافرة، جمال عبدالناصر، بجوار جزارة أنعام الريف</span>
@@ -571,7 +983,79 @@
           <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 7v5l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
           <span>يوميًا من 12 ظهرًا حتى 2 بعد منتصف الليل</span>
         </div>
+        <div class="branch-actions">
+          <a href="tel:+201028525794" class="ba-call">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.7a2 2 0 01-.5 2L8 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012-.5c.9.3 1.8.5 2.7.6a2 2 0 011.7 2z" stroke="currentColor" stroke-width="1.8"/></svg>
+            اتصل
+          </a>
+          <a href="https://wa.me/201028525794" class="ba-wa" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3zm0 16.3a7.3 7.3 0 01-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1112 19.3z"/></svg>
+            واتساب
+          </a>
+          <a href="https://www.google.com/maps/search/?api=1&query=%D8%B4%D8%A7%D8%B1%D8%B9+%D8%A7%D9%84%D9%85%D9%84%D8%A7%D8%B2%D9%85+%D8%A8%D8%B3%D9%8A%D9%88%D9%86%D9%8A+%D8%A8%D8%B1%D8%AC+%D9%85%D9%83%D8%A9+%D8%A7%D9%84%D8%B9%D8%B5%D8%A7%D9%81%D8%B1%D8%A9+%D8%AC%D9%85%D8%A7%D9%84+%D8%B9%D8%A8%D8%AF%D8%A7%D9%84%D9%86%D8%A7%D8%B5%D8%B1+%D8%A7%D9%84%D8%A5%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D8%A9" class="ba-map" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
+            الطريق
+          </a>
+        </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="occasions">
+  <div class="wrap occasion-grid">
+    <div>
+      <div class="section-head" style="margin-bottom:24px;">
+        <h2>طلبات المناسبات</h2>
+        <p>تورتة عيد ميلاد، صواني حلويات لعزومة، أو طلب كبير لمناسبة — بنجهزهولك بالطلب المسبق.</p>
+      </div>
+      <p style="color:var(--ink-soft); font-size:16px; margin-bottom:14px;">املا البيانات وابعتها على واتساب، وهنرد عليك بالتفاصيل والسعر النهائي.</p>
+      <p style="color:var(--ink-soft); font-size:16px;">للطلبات الكبيرة يُفضّل التواصل بدري عشان نضمنلك الميعاد.</p>
+    </div>
+
+    <div class="occasion-card">
+      <div class="occasion-note">لازم تحجز قبل المناسبة بيومين على الأقل. في أوقات الضغط على المطبخ ممكن نعتذر عن استلام طلبات جديدة، فكل ما تكلمنا بدري كل ما أمّنا لك الميعاد.</div>
+
+      <div class="field">
+        <label for="occType">نوع الطلب</label>
+        <select id="occType">
+          <option>تورتة عيد ميلاد</option>
+          <option>كيك مناسبة</option>
+          <option>صواني حلويات شرقي</option>
+          <option>بوكس معجنات / بيتي فور</option>
+          <option>طلب كبير (كمية)</option>
+          <option>غير كده</option>
+        </select>
+      </div>
+
+      <div class="occ-row">
+        <div class="field">
+          <label for="occDate">تاريخ المناسبة</label>
+          <input type="date" id="occDate">
+        </div>
+        <div class="field">
+          <label for="occSize">الحجم / العدد</label>
+          <input type="text" id="occSize" placeholder="مثلاً: 2 كيلو، 20 فرد">
+        </div>
+      </div>
+
+      <div class="occ-row">
+        <div class="field">
+          <label for="occName">الاسم</label>
+          <input type="text" id="occName" placeholder="اسمك">
+        </div>
+        <div class="field">
+          <label for="occPhone">التليفون</label>
+          <input type="tel" id="occPhone" inputmode="tel" placeholder="01xxxxxxxxx">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="occDetails">تفاصيل الطلب</label>
+        <textarea id="occDetails" placeholder="النكهة، الكتابة على التورتة، أي طلبات خاصة…"></textarea>
+      </div>
+
+      <button class="btn btn-wa" id="occSend" type="button" style="width:100%; justify-content:center;">ابعت الطلب على واتساب</button>
     </div>
   </div>
 </section>
@@ -652,6 +1136,73 @@
     </div>
   </div>
 </footer>
+
+<!-- ===== سلة الطلب ===== -->
+<div class="cart-bar" id="cartBar">
+  <div class="info">
+    <span id="cartCount">0 صنف</span>
+    <small id="cartTotalBar">الإجمالي: 0 ج</small>
+  </div>
+  <button class="cart-open-btn" id="cartOpenBtn" type="button">عرض الطلب</button>
+</div>
+
+<div class="cart-overlay" id="cartOverlay"></div>
+
+<div class="cart-sheet" id="cartSheet" role="dialog" aria-label="طلبك">
+  <div class="cart-head">
+    <h3>طلبك</h3>
+    <button class="cart-close" id="cartCloseBtn" type="button" aria-label="إغلاق">&times;</button>
+  </div>
+  <div class="cart-body">
+    <div id="cartItems"></div>
+    <div class="cust-fields" id="custFields">
+      <h4>بياناتك</h4>
+      <div class="field">
+        <label>الفرع اللي هتطلب منه</label>
+        <div class="branch-pick" id="branchPick">
+          <button class="branch-opt sel" type="button" data-branch="1" data-wa="201066399888" data-label="الفرع الأول (الرئيسي) — 3 ش محمود جمعة، العصافرة">
+            <b>الفرع الأول (الرئيسي)</b>
+            <small>مفتوح 24 ساعة</small>
+          </button>
+          <button class="branch-opt" type="button" data-branch="2" data-wa="201028525794" data-label="الفرع الثاني — ش الملازم بسيوني، برج مكة، العصافرة">
+            <b>الفرع الثاني</b>
+            <small>12 ظهرًا — 2 بعد منتصف الليل</small>
+          </button>
+        </div>
+      </div>
+      <div class="field">
+        <label for="custName">الاسم</label>
+        <input type="text" id="custName" placeholder="اكتب اسمك">
+      </div>
+      <div class="field">
+        <label for="custPhone">رقم التليفون</label>
+        <input type="tel" id="custPhone" inputmode="tel" placeholder="01xxxxxxxxx">
+      </div>
+      <div class="field">
+        <label for="custAddr">العنوان (لو عايز توصيل)</label>
+        <textarea id="custAddr" placeholder="الشارع، رقم العمارة، الدور، علامة مميزة"></textarea>
+        <small style="display:block; color:var(--ink-soft); font-size:12px; margin-top:5px;">التوصيل مش متاح على طول، وممكن ياخد وقت أطول وقت الضغط. لو مش متاح هنقولك في نفس الرسالة ونقترح استلام من الفرع.</small>
+      </div>
+      <div class="field">
+        <label for="custNote">ملاحظات (اختياري)</label>
+        <textarea id="custNote" placeholder="أي طلب خاص، ميعاد الاستلام، إلخ"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="cart-foot">
+    <div class="cart-total">
+      <span>الإجمالي التقريبي</span>
+      <b id="cartTotal">0 ج</b>
+    </div>
+    <div class="cart-actions">
+      <button class="btn btn-wa" id="waBtn" type="button">إرسال على واتساب</button>
+      <button class="btn btn-copy" id="copyBtn" type="button">نسخ الطلب</button>
+    </div>
+    <button class="cart-clear" id="clearBtn" type="button">مسح الطلب</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
 
 <a href="https://wa.me/201066399888" class="wa-float" aria-label="تواصل عبر واتساب">
   <svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 00-7.8 13.5L3 21l4.6-1.2A9 9 0 1012 3zm0 16.3a7.3 7.3 0 01-3.7-1l-.3-.2-2.7.7.7-2.6-.2-.3A7.3 7.3 0 1112 19.3z"/></svg>
@@ -797,6 +1348,15 @@
     ]
   };
 
+  /* تحويل نص السعر لخيارات: "55 ج / ربع · 220 ج / كيلو" -> خيارين */
+  function parsePrice(text){
+    return text.split('·').map(part => {
+      const m = part.trim().match(/([\d.]+)\s*ج(?:\s*\/\s*(.+))?/);
+      if(!m) return null;
+      return { amount: parseFloat(m[1]), unit: (m[2] || '').trim() };
+    }).filter(Boolean);
+  }
+
   function renderMenu(){
     Object.keys(menuData).forEach(key => {
       const panel = document.getElementById('panel-' + key);
@@ -809,7 +1369,13 @@
       Object.keys(groups).forEach(sub => {
         html += `<div class="menu-group"><h4>${sub}</h4><div class="menu-items">`;
         groups[sub].forEach(([name, price]) => {
-          html += `<div class="menu-item"><span>${name}</span><span class="price">${price}</span></div>`;
+          const opts = parsePrice(price);
+          const btns = opts.map(o => {
+            const label = o.unit ? `${o.amount} ج / ${o.unit}` : `${o.amount} ج`;
+            const id = name + '|' + (o.unit || '-');
+            return `<button class="opt-btn" type="button" data-id="${id}" data-name="${name}" data-unit="${o.unit}" data-amount="${o.amount}"><span class="plus">+</span>${label}</button>`;
+          }).join('');
+          html += `<div class="menu-item"><span class="name">${name}</span><span class="opts">${btns}</span></div>`;
         });
         html += `</div></div>`;
       });
@@ -817,6 +1383,398 @@
     });
   }
   renderMenu();
+
+  /* ============ الأكثر طلبًا: أنواع العيش والحبة الكاملة ============ */
+  const breadTypes = [
+    'فينو (7 رغيف)','فينو (10 رغيف)',
+    'بيتي بان شاورما (4 رغيف)','بيتي بان صغير (7 رغيف)',
+    'كايزر (4 رغيف)',
+    'توست أصفر','توست أصفر (كبير)'
+  ];
+  const wholeGrainTypes = [
+    'عيش بلدي صغير حبة كاملة',
+    'فينو حبة كاملة (صغير)','فينو حبة كاملة (كبير)',
+    'كايزر حبة كاملة',
+    'عيش سن حبة كاملة','عيش سن حبة كاملة (كبير)',
+    'توست حبة كاملة طري',
+    'توست أسمر ناشف','توست أسمر ناشف (كبير)',
+    'باتون ساليه حبة كاملة','بقسماط حبة كاملة'
+  ];
+
+  function findItem(name){
+    for(const key of Object.keys(menuData)){
+      const hit = menuData[key].find(([n]) => n === name);
+      if(hit) return hit;
+    }
+    return null;
+  }
+
+  function bestGroupHtml(title, names){
+    const rows = names.map(name => {
+      const item = findItem(name);
+      if(!item) return '';
+      const [n, , price] = item;
+      const opts = parsePrice(price);
+      const btns = opts.map(o => {
+        const label = o.unit ? `${o.amount} ج / ${o.unit}` : `${o.amount} ج`;
+        const id = n + '|' + (o.unit || '-');
+        return `<button class="opt-btn" type="button" data-id="${id}" data-name="${n}" data-unit="${o.unit}" data-amount="${o.amount}"><span class="plus">+</span>${label}</button>`;
+      }).join('');
+      return `<div class="menu-item"><span class="name">${n}</span><span class="opts">${btns}</span></div>`;
+    }).filter(Boolean).join('');
+    return `<div class="menu-group"><h4>${title}</h4><div class="menu-items">${rows}</div></div>`;
+  }
+
+  function renderBest(){
+    document.getElementById('bestGrid').innerHTML =
+      bestGroupHtml('أنواع العيش', breadTypes) +
+      bestGroupHtml('أنواع الحبة الكاملة', wholeGrainTypes);
+  }
+  renderBest();
+
+  /* ============ البحث في المنيو ============ */
+  const searchInput = document.getElementById('menuSearch');
+  const searchClear = document.getElementById('searchClear');
+  const noResults = document.getElementById('noResults');
+  const tabsEl = document.querySelector('.menu-tabs');
+
+  function runSearch(){
+    const q = searchInput.value.trim();
+    searchClear.classList.toggle('show', q.length > 0);
+
+    if(!q){
+      // رجوع لوضع التصنيفات
+      tabsEl.style.display = '';
+      noResults.style.display = 'none';
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      const activeTab = document.querySelector('.menu-tab.active');
+      document.getElementById('panel-' + activeTab.dataset.tab).classList.add('active');
+      document.querySelectorAll('.menu-item').forEach(el => el.style.display = '');
+      document.querySelectorAll('.menu-group').forEach(g => g.style.display = '');
+      return;
+    }
+
+    // وضع البحث: كل الأقسام ظاهرة والفلترة بالاسم
+    tabsEl.style.display = 'none';
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.add('active'));
+
+    let found = 0;
+    document.querySelectorAll('.menu-item').forEach(el => {
+      const name = el.querySelector('.name').textContent;
+      const match = name.includes(q);
+      el.style.display = match ? '' : 'none';
+      if(match) found++;
+    });
+    // إخفاء المجموعات الفاضية
+    document.querySelectorAll('.menu-group').forEach(g => {
+      const visible = [...g.querySelectorAll('.menu-item')].some(i => i.style.display !== 'none');
+      g.style.display = visible ? '' : 'none';
+    });
+    noResults.style.display = found ? 'none' : 'block';
+  }
+
+  searchInput.addEventListener('input', runSearch);
+  searchClear.addEventListener('click', () => {
+    searchInput.value = '';
+    runSearch();
+    searchInput.focus();
+  });
+
+  /* ============ حالة الفرع الثاني (مفتوح / مقفول) ============ */
+  function updateBranchStatus(){
+    const el = document.getElementById('status2');
+    if(!el) return;
+    const h = new Date().getHours();
+    // مفتوح من 12 ظهرًا حتى 2 بعد منتصف الليل
+    const open = (h >= 12) || (h < 2);
+    el.classList.toggle('status-open', open);
+    el.classList.toggle('status-closed', !open);
+    el.querySelector('.txt').textContent = open
+      ? 'مفتوح دلوقتي'
+      : 'مقفول دلوقتي — الفرع الرئيسي مفتوح 24 ساعة';
+  }
+  updateBranchStatus();
+  setInterval(updateBranchStatus, 60000);
+
+  /* ============ طلبات المناسبات ============ */
+  const occDateInput = document.getElementById('occDate');
+  if(occDateInput){
+    const minDate = new Date();
+    minDate.setDate(minDate.getDate() + 2);
+    occDateInput.min = minDate.toISOString().split('T')[0];
+  }
+  const occBtn = document.getElementById('occSend');
+  if(occBtn){
+    occBtn.addEventListener('click', () => {
+      const v = id => (document.getElementById(id).value || '').trim();
+      const type = v('occType'), date = v('occDate'), size = v('occSize');
+      const name = v('occName'), phone = v('occPhone'), details = v('occDetails');
+
+      if(!name || !phone){
+        toast('اكتب اسمك ورقم تليفونك الأول');
+        return;
+      }
+      if(date && occDateInput && date < occDateInput.min){
+        toast('محتاجين حجز قبل المناسبة بيومين على الأقل');
+        return;
+      }
+
+      let lines = ['*طلب مناسبة — مخبوزات الصفوة*', '——————————'];
+      lines.push(`النوع: ${type}`);
+      if(date)    lines.push(`تاريخ المناسبة: ${date}`);
+      if(size)    lines.push(`الحجم / العدد: ${size}`);
+      lines.push('——————————');
+      lines.push(`الاسم: ${name}`);
+      lines.push(`التليفون: ${phone}`);
+      if(details) lines.push(`التفاصيل: ${details}`);
+
+      window.open('https://wa.me/201066399888?text=' + encodeURIComponent(lines.join('\n')), '_blank');
+    });
+  }
+
+  /* ================= سلة الطلب (مؤقتة في المتصفح) ================= */
+  const cart = {}; // id -> {name, unit, amount, qty}
+  const WA_NUMBER = '201066399888';
+  const STORE_KEY = 'safwa_order_v1';
+
+  /* حفظ واسترجاع الطلب من متصفح الزائر */
+  function saveCart(){
+    try{
+      const data = {
+        cart,
+        cust: {
+          name:  document.getElementById('custName').value,
+          phone: document.getElementById('custPhone').value,
+          addr:  document.getElementById('custAddr').value,
+          note:  document.getElementById('custNote').value,
+          branch: (document.querySelector('.branch-opt.sel') || {}).dataset?.branch || '1'
+        }
+      };
+      localStorage.setItem(STORE_KEY, JSON.stringify(data));
+    }catch(e){ /* الحفظ مش متاح — الموقع يفضل شغال عادي */ }
+  }
+
+  function loadCart(){
+    try{
+      const raw = localStorage.getItem(STORE_KEY);
+      if(!raw) return;
+      const data = JSON.parse(raw);
+      Object.entries(data.cart || {}).forEach(([id, it]) => {
+        if(it && it.name && it.qty > 0) cart[id] = it;
+      });
+      const c = data.cust || {};
+      if(c.name)  document.getElementById('custName').value  = c.name;
+      if(c.phone) document.getElementById('custPhone').value = c.phone;
+      if(c.addr)  document.getElementById('custAddr').value  = c.addr;
+      if(c.note)  document.getElementById('custNote').value  = c.note;
+      if(c.branch){
+        const b = document.querySelector('.branch-opt[data-branch="' + c.branch + '"]');
+        if(b){
+          document.querySelectorAll('.branch-opt').forEach(x => x.classList.remove('sel'));
+          b.classList.add('sel');
+        }
+      }
+    }catch(e){ /* تجاهل أي بيانات تالفة */ }
+  }
+
+  const cartBar = document.getElementById('cartBar');
+  const cartSheet = document.getElementById('cartSheet');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartBody = document.getElementById('cartItems');
+  const toastEl = document.getElementById('toast');
+
+  function fmt(n){
+    return (Math.round(n * 100) / 100).toLocaleString('ar-EG');
+  }
+
+  function itemLabel(it){
+    return it.unit ? `${it.name} (${it.unit})` : it.name;
+  }
+
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('show');
+    clearTimeout(toastEl._t);
+    toastEl._t = setTimeout(() => toastEl.classList.remove('show'), 1800);
+  }
+
+  function addItem(btn){
+    const id = btn.dataset.id;
+    if(!cart[id]){
+      cart[id] = {
+        name: btn.dataset.name,
+        unit: btn.dataset.unit,
+        amount: parseFloat(btn.dataset.amount),
+        qty: 0
+      };
+    }
+    cart[id].qty++;
+    updateCart();
+    toast(itemLabel(cart[id]) + ' — اتضاف للطلب');
+  }
+
+  function changeQty(id, delta){
+    if(!cart[id]) return;
+    cart[id].qty += delta;
+    if(cart[id].qty <= 0) delete cart[id];
+    updateCart();
+  }
+
+  function cartEntries(){ return Object.entries(cart); }
+
+  function cartTotals(){
+    let count = 0, total = 0;
+    cartEntries().forEach(([, it]) => { count += it.qty; total += it.qty * it.amount; });
+    return { count, total };
+  }
+
+  function updateCart(){
+    saveCart();
+    const { count, total } = cartTotals();
+
+    // شريط السلة
+    if(count > 0){
+      cartBar.classList.add('show');
+      document.body.classList.add('cart-active');
+    } else {
+      cartBar.classList.remove('show');
+      document.body.classList.remove('cart-active');
+      closeCart();
+    }
+    document.getElementById('cartCount').textContent = count + (count === 1 ? ' صنف' : ' صنف');
+    document.getElementById('cartTotalBar').textContent = 'الإجمالي: ' + fmt(total) + ' ج';
+    document.getElementById('cartTotal').textContent = fmt(total) + ' ج';
+
+    // تحديث حالة أزرار المنيو
+    document.querySelectorAll('.opt-btn').forEach(btn => {
+      const it = cart[btn.dataset.id];
+      const base = btn.dataset.unit
+        ? `${btn.dataset.amount} ج / ${btn.dataset.unit}`
+        : `${btn.dataset.amount} ج`;
+      if(it){
+        btn.classList.add('added');
+        btn.innerHTML = `<span class="plus">+</span>${base}<span class="qty-badge">${it.qty}</span>`;
+      } else {
+        btn.classList.remove('added');
+        btn.innerHTML = `<span class="plus">+</span>${base}`;
+      }
+    });
+
+    // محتوى السلة
+    if(count === 0){
+      cartBody.innerHTML = '<div class="cart-empty">لسه مختارتش حاجة.<br>اضغط على سعر أي صنف عشان يتضاف هنا.</div>';
+      return;
+    }
+    cartBody.innerHTML = cartEntries().map(([id, it]) => `
+      <div class="cart-line">
+        <div class="t">${it.name}<small>${it.unit ? it.unit + ' — ' : ''}${fmt(it.amount)} ج للوحدة</small></div>
+        <div class="qty-ctrl">
+          <button type="button" data-act="minus" data-id="${id}" aria-label="تقليل">−</button>
+          <span>${it.qty}</span>
+          <button type="button" data-act="plus" data-id="${id}" aria-label="زيادة">+</button>
+        </div>
+        <div class="sub">${fmt(it.qty * it.amount)} ج</div>
+      </div>
+    `).join('');
+  }
+
+  function selectedBranch(){
+    const el = document.querySelector('.branch-opt.sel');
+    return {
+      wa: el ? el.dataset.wa : WA_NUMBER,
+      label: el ? el.dataset.label : ''
+    };
+  }
+
+  function orderText(){
+    const { total } = cartTotals();
+    const br = selectedBranch();
+    const name = document.getElementById('custName').value.trim();
+    const phone = document.getElementById('custPhone').value.trim();
+    const addr = document.getElementById('custAddr').value.trim();
+    const note = document.getElementById('custNote').value.trim();
+
+    let lines = ['*طلب من مخبوزات الصفوة*', '——————————'];
+    cartEntries().forEach(([, it]) => {
+      lines.push(`• ${itemLabel(it)} × ${it.qty} = ${fmt(it.qty * it.amount)} ج`);
+    });
+    lines.push('——————————');
+    lines.push(`الإجمالي التقريبي: ${fmt(total)} ج`);
+    lines.push('');
+    if(br.label) lines.push(`الفرع: ${br.label}`);
+    if(name)  lines.push(`الاسم: ${name}`);
+    if(phone) lines.push(`التليفون: ${phone}`);
+    if(addr)  lines.push(`العنوان: ${addr}`);
+    if(note)  lines.push(`ملاحظات: ${note}`);
+    return lines.join('\n');
+  }
+
+  function openCart(){
+    cartSheet.classList.add('show');
+    cartOverlay.classList.add('show');
+  }
+  function closeCart(){
+    cartSheet.classList.remove('show');
+    cartOverlay.classList.remove('show');
+  }
+
+  // الأحداث
+  document.addEventListener('click', e => {
+    const opt = e.target.closest('.opt-btn');
+    if(opt){ addItem(opt); return; }
+    const q = e.target.closest('[data-act]');
+    if(q){ changeQty(q.dataset.id, q.dataset.act === 'plus' ? 1 : -1); }
+  });
+
+  document.getElementById('cartOpenBtn').addEventListener('click', openCart);
+  document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+  cartOverlay.addEventListener('click', closeCart);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') closeCart(); });
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    Object.keys(cart).forEach(k => delete cart[k]);
+    updateCart();
+    toast('اتمسح الطلب');
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    const text = orderText();
+    try{
+      await navigator.clipboard.writeText(text);
+      toast('اتنسخ الطلب ✓');
+    }catch(err){
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try{ document.execCommand('copy'); toast('اتنسخ الطلب ✓'); }
+      catch(e2){ toast('انسخ الطلب يدويًا من الشاشة'); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  document.getElementById('waBtn').addEventListener('click', () => {
+    window.open('https://wa.me/' + selectedBranch().wa + '?text=' + encodeURIComponent(orderText()), '_blank');
+  });
+
+  // اختيار الفرع
+  document.getElementById('branchPick').addEventListener('click', e => {
+    const opt = e.target.closest('.branch-opt');
+    if(!opt) return;
+    document.querySelectorAll('.branch-opt').forEach(b => b.classList.remove('sel'));
+    opt.classList.add('sel');
+    saveCart();
+  });
+
+  // حفظ بيانات العميل أول بأول
+  ['custName','custPhone','custAddr','custNote'].forEach(id => {
+    document.getElementById(id).addEventListener('input', saveCart);
+  });
+
+  loadCart();
+  updateCart();
 
   document.querySelectorAll('.menu-tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -830,4 +1788,5 @@
 
 </body>
 </html>
+
 
